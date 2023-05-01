@@ -4,16 +4,16 @@ import Vapor
 
 public final class Bot {
     
-    let client: Client
-    let logger: Logger
+    public let app: Application
+    public var client: Client { app.client }
+    public var logger: Logger { app.logger }
     let api: API
     
     private var sessions: [any ChatSession] = []
     
-    init(client: Client, logger: Logger, api: API = API()) {
-        self.client = client
+    init(_ app: Application, api: API = API()) {
+        self.app = app
         self.api = api
-        self.logger = logger
     }
     
     @discardableResult

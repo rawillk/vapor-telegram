@@ -18,6 +18,7 @@ public struct API {
         case getUpdates
         case setWebhook
         case deleteWebhook
+        case getWebhookInfo
     }
     
     struct Payload<R: Content>: Content {

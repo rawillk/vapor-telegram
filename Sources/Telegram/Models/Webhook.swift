@@ -5,9 +5,9 @@ public struct Webhook: Content {
     
     public let url: String
     public let token: String?
-    public let dropPending: String?
+    public let dropPending: Bool?
     
-    public init(url: String, token: String? = nil, dropPending: String? = nil) {
+    public init(url: String, token: String? = nil, dropPending: Bool? = nil) {
         self.url = url
         self.token = token
         self.dropPending = dropPending

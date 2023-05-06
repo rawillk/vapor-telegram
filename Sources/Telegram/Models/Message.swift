@@ -5,6 +5,7 @@ public struct Message: Content {
     
     public let message_id: Int
     public let chat: Chat
+    public let text: String?
     public let from: User?
 }
 

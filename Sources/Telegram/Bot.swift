@@ -15,7 +15,6 @@ public final class Bot {
     init(_ app: Application, api: API = API()) {
         self.app = app
         self.api = api
-        decoder.dateDecodingStrategy = .secondsSince1970
         decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     

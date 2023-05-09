@@ -3,7 +3,7 @@ import Vapor
 
 public struct Message: Content {
     
-    public let message_id: Int
+    public let message_id: Int64
     public let chat: Chat
     public let text: String?
     public let from: User?

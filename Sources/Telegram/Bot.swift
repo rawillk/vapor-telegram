@@ -7,10 +7,10 @@ public final class Bot {
     public let app: Application
     public var client: Client { app.client }
     public var logger: Logger { app.logger }
+    public let decoder: JSONDecoder = .init()
     let api: API
     
     private var sessions: [any ChatSession] = []
-    private let decoder: JSONDecoder = .init()
     
     init(_ app: Application, api: API = API()) {
         self.app = app

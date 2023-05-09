@@ -1,7 +1,7 @@
 
 import Foundation
 
-public struct Command: Codable {
+public struct Command: Codable, Hashable, Equatable {
     
     public let rawValue: String
     

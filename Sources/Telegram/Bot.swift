@@ -10,10 +10,13 @@ public final class Bot {
     let api: API
     
     private var sessions: [any ChatSession] = []
+    private let decoder: JSONDecoder = .init()
     
     init(_ app: Application, api: API = API()) {
         self.app = app
         self.api = api
+        decoder.dateDecodingStrategy = .secondsSince1970
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
     @discardableResult
@@ -47,7 +50,7 @@ public final class Bot {
     }
     
     private func unwrap<R: Content>(_ response: ClientResponse) throws -> R {
-        let payload = try response.content.decode(API.Payload<R>.self)
+        let payload = try response.content.decode(API.Payload<R>.self, using: decoder)
         if payload.ok {
             logger.log(level: .info, "Telegram Bot: Content received")
         }
@@ -59,7 +62,7 @@ public final class Bot {
     }
     
     private func unwrap(response: ClientResponse) throws {
-        let payload = try response.content.decode(API.EmptyPayload.self)
+        let payload = try response.content.decode(API.EmptyPayload.self, using: decoder)
         if payload.ok {
             logger.log(level: .info, "Telegram Bot: Content received")
         }

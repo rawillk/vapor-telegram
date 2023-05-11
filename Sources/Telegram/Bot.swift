@@ -16,6 +16,7 @@ public final class Bot {
         self.app = app
         self.api = api
         decoder.keyDecodingStrategy = .convertFromSnakeCase
+        decoder.dateDecodingStrategy = .secondsSince1970
     }
     
     @discardableResult

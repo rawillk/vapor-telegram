@@ -54,12 +54,10 @@ public final class Bot {
         if payload.ok {
             logger.log(level: .info, "Telegram Bot: Content received")
         }
-        #if DEBUG
         if let data = response.body {
             let string = String(buffer: data)
             print(string)
         }
-        #endif
         return payload.result
     }
     

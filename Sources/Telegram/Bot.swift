@@ -50,13 +50,13 @@ public final class Bot {
     }
     
     private func unwrap<R: Content>(_ response: ClientResponse) throws -> R {
-        let payload = try response.content.decode(API.Payload<R>.self, using: decoder)
-        if payload.ok {
-            logger.log(level: .info, "Telegram Bot: Content received")
-        }
         if let data = response.body {
             let string = String(buffer: data)
             print(string)
+        }
+        let payload = try response.content.decode(API.Payload<R>.self, using: decoder)
+        if payload.ok {
+            logger.log(level: .info, "Telegram Bot: Content received")
         }
         return payload.result
     }

@@ -5,8 +5,8 @@ public struct InlineKeyboardMarkup: Content {
     
     let inline_keyboard: [[InlineKeyboardButton]]
     
-    public init(rows: [[InlineKeyboardButton]]) {
-        self.inline_keyboard = rows
+    public init(collumns: [[InlineKeyboardButton]]) {
+        self.inline_keyboard = collumns
     }
 }
 

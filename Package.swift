@@ -9,6 +9,10 @@ let package = Package(
         .library(
             name: "Telegram",
             targets: ["Telegram"]),
+        .executable(
+            name: "TelegramBotServer",
+            targets: ["TelegramBotServer"]
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/rawillk/vapor-bots.git", from: "0.1.0"),
@@ -19,5 +23,9 @@ let package = Package(
             .product(name: "Bots", package: "vapor-bots"),
             .product(name: "Vapor", package: "vapor")
         ]),
+        .executableTarget(name: "TelegramBotServer", dependencies: [
+            .product(name: "Vapor", package: "vapor"),
+            "Telegram"
+        ])
     ]
 )

@@ -19,6 +19,7 @@ public struct API {
         case setWebhook
         case deleteWebhook
         case getWebhookInfo
+        case answerCallbackQuery
     }
     
     struct Payload<R: Content>: Content {

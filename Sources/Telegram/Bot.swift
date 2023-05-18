@@ -38,6 +38,13 @@ public final class Bot {
         try unwrap(try await client.post(api.uri(.sendMessage), content: message))
     }
     
+    public func answer(query: CallbackQuery.Answer, with text: String? = nil) async throws {
+        let done: Bool = try unwrap(try await client.post(api.uri(.answerCallbackQuery), content: query ))
+        if !done {
+            throw Abort(.conflict, reason: "Server response not successfull")
+        }
+    }
+
     public func set(webhook: Webhook) async throws {
         try unwrap(response: try await client.post(api.uri(.setWebhook), content: webhook))
     }

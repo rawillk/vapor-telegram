@@ -33,10 +33,6 @@ public extension Message {
     }
     
     func reply(with text: String, keyboard: InlineKeyboardMarkup? = nil) -> Out {
-        .init(chat_id: "\(chat.id)", text: text)
-    }
-    
-    func reply(with keyboard: InlineKeyboardMarkup) -> Out {
-        .init(chat_id: "\(chat.id)", text: nil, keyboard: keyboard)
+        .init(chat_id: "\(chat.id)", text: text, keyboard: keyboard)
     }
 }
